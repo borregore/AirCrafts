@@ -10,23 +10,23 @@ import com.flyingMachines.type.Purpose;
 public class Jet extends FlyingMachine {
 
     private Rocket _rocket;
-    private int _rocketCuantity;
+    private int _rocketQuantity;
     private Wings _wings;
 
     public Jet(Builder builder) {
         _rocket = builder._rocket;
-        _rocketCuantity = builder._rocketCuantity;
+        _rocketQuantity = builder._rocketQuantity;
         _wings = builder._wings;
         _cabin = builder._cabin;
         _flyingMachineType = builder._flyingMachineType;
         _fuelType = builder._fuelType;
-        _fuelCuantity = builder._fuelCuantity;
+        _fuelQuantity = builder._fuelQuantity;
         _purpose = builder._purpose;
     }
 
     private static class Builder extends FlyingMachine {
         private Rocket _rocket;
-        private int _rocketCuantity;
+        private int _rocketQuantity;
         private Wings _wings;
         private Cabin _cabin;
 
@@ -39,8 +39,8 @@ public class Jet extends FlyingMachine {
             return this;
         }
 
-        public Builder rocketCuantity(int rocketCuantity) {
-            _rocketCuantity = rocketCuantity;
+        public Builder rocketQuantity(int rocketQuantity) {
+            _rocketQuantity = rocketQuantity;
             return this;
         }
 
@@ -59,8 +59,8 @@ public class Jet extends FlyingMachine {
             return this;
         }
 
-        public Builder fuelCuantity(int fuelCuantity) {
-            _fuelCuantity = fuelCuantity;
+        public Builder fuelQuantity(int fuelQuantity) {
+            _fuelQuantity = fuelQuantity;
             return this;
         }
 
@@ -75,15 +75,16 @@ public class Jet extends FlyingMachine {
         }
     }
 
-    public int get_rocketCuantity() {
-        return _rocketCuantity;
+    public int getRocketQuantity() {
+        return _rocketQuantity;
     }
 
-    public Rocket get_rocket() {
+    public Rocket getRocket() {
         return _rocket;
     }
 
-    public Wings get_wings() {
+    public Wings getWings() {
         return _wings;
     }
 }
+

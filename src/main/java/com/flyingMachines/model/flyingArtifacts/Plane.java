@@ -10,23 +10,23 @@ import com.flyingMachines.type.Purpose;
 public class Plane extends FlyingMachine {
 
     private Propeller _propeller;
-    private int _propellerCuantity;
+    private int _propellerQuantity;
     private Wings _wings;
 
     public Plane(Builder builder) {
         _propeller = builder._propeller;
-        _propellerCuantity = builder._propellerCuantity;
+        _propellerQuantity = builder._propellerQuantity;
         _wings = builder._wings;
         _cabin = builder._cabin;
         _flyingMachineType = builder._flyingMachineType;
         _fuelType = builder._fuelType;
-        _fuelCuantity = builder._fuelCuantity;
+        _fuelQuantity = builder._fuelQuantity;
         _purpose = builder._purpose;
     }
 
     private static class Builder extends FlyingMachine {
         private Propeller _propeller;
-        private int _propellerCuantity;
+        private int _propellerQuantity;
         private Wings _wings;
         private Cabin _cabin;
 
@@ -39,8 +39,8 @@ public class Plane extends FlyingMachine {
             return this;
         }
 
-        public Builder propellerCuantity(int propellerCuantity) {
-            _propellerCuantity = propellerCuantity;
+        public Builder propellerQuantity(int propellerQuantity) {
+            _propellerQuantity = propellerQuantity;
             return this;
         }
 
@@ -59,8 +59,8 @@ public class Plane extends FlyingMachine {
             return this;
         }
 
-        public Builder fuelCuantity(int fuelCuantity) {
-            _fuelCuantity = fuelCuantity;
+        public Builder fuelQuantity(int fuelQuantity) {
+            _fuelQuantity = fuelQuantity;
             return this;
         }
 
@@ -75,11 +75,11 @@ public class Plane extends FlyingMachine {
         }
     }
 
-    public Propeller get_propeller() {
+    public Propeller getPropeller() {
         return _propeller;
     }
 
-    public Wings get_wings() {
+    public Wings getWings() {
         return _wings;
     }
 }

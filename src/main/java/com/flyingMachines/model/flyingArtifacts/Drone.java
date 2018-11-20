@@ -9,14 +9,14 @@ import com.flyingMachines.type.Purpose;
 public class Drone extends FlyingMachine {
 
     private Propeller _propeller;
-    private int _propellerCuantity;
+    private int _propellerQuantity;
 
     public Drone(Builder builder) {
         _cabin = builder._cabin;
         _propeller = builder._propeller;
-        _propellerCuantity = builder._propellerCuantity;
+        _propellerQuantity = builder._propellerQuantity;
         _flyingMachineType = builder._flyingMachineType;
-        _fuelCuantity = builder._fuelCuantity;
+        _fuelQuantity = builder._fuelQuantity;
         _fuelType = builder._fuelType;
         _purpose = builder._purpose;
     }
@@ -24,7 +24,7 @@ public class Drone extends FlyingMachine {
     private static class Builder extends FlyingMachine {
         private Cabin _cabin;
         private Propeller _propeller;
-        private int _propellerCuantity;
+        private int _propellerQuantity;
 
         public Drone build() {
             return new Drone(this);
@@ -40,8 +40,8 @@ public class Drone extends FlyingMachine {
             return this;
         }
 
-        public Builder propellerCuantity(int propellerCuantity) {
-            _propellerCuantity = propellerCuantity;
+        public Builder propellerQuantity(int propellerQuantity) {
+            _propellerQuantity = propellerQuantity;
             return this;
         }
 
@@ -50,8 +50,8 @@ public class Drone extends FlyingMachine {
             return this;
         }
 
-        public Builder fuelCuantity(int fuelCuantity) {
-            _fuelCuantity = fuelCuantity;
+        public Builder fuelQuantity(int fuelQuantity) {
+            _fuelQuantity = fuelQuantity;
             return this;
         }
 
@@ -60,17 +60,17 @@ public class Drone extends FlyingMachine {
             return this;
         }
 
-        public Builder _purpose(Purpose purpose) {
+        public Builder purpose(Purpose purpose) {
             _purpose = purpose;
             return this;
         }
     }
 
-    public Propeller get_propeller() {
+    public Propeller getPropeller() {
         return _propeller;
     }
 
-    public int get_propellerCuantity() {
-        return _propellerCuantity;
+    public int getPropellerQuantity() {
+        return _propellerQuantity;
     }
 }

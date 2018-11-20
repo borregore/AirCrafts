@@ -5,7 +5,7 @@ import com.flyingMachines.type.Material;
 public class Parts {
     Material _material;
 
-    public Material get_material() {
+    public Material getMaterial() {
         return _material;
     }
 }

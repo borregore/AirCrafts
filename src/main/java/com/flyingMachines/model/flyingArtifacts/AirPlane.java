@@ -10,23 +10,23 @@ import com.flyingMachines.type.Purpose;
 public class AirPlane extends FlyingMachine {
 
     private Propeller _propeller;
-    private int _propellerCuantity;
+    private int _propellerQuantity;
     private Wings _wings;
 
-    public AirPlane(Builder builder) {
+    public AirPlane(AirPlaneBuilder builder) {
         _propeller = builder._propeller;
-        _propellerCuantity = builder._propellerCuantity;
+        _propellerQuantity = builder._propellerQuantity;
         _wings = builder._wings;
         _cabin = builder._cabin;
         _flyingMachineType = builder._flyingMachineType;
         _fuelType = builder._fuelType;
-        _fuelCuantity = builder._fuelCuantity;
+        _fuelQuantity = builder._fuelQuantity;
         _purpose = builder._purpose;
     }
 
-    private static class Builder extends FlyingMachine {
+    private static class AirPlaneBuilder extends FlyingMachine {
         private Propeller _propeller;
-        private int _propellerCuantity;
+        private int _propellerQuantity;
         private Wings _wings;
         private Cabin _cabin;
 
@@ -34,52 +34,52 @@ public class AirPlane extends FlyingMachine {
             return new AirPlane(this);
         }
 
-        public Builder propeller(Propeller propeller) {
+        public AirPlaneBuilder propeller(Propeller propeller) {
             _propeller = propeller;
             return this;
         }
 
-        public Builder propellerCuantity(int propellerCuantity) {
-            _propellerCuantity = propellerCuantity;
+        public AirPlaneBuilder propellerQuantity(int propellerQuantity) {
+            _propellerQuantity = propellerQuantity;
             return this;
         }
 
-        public Builder wings(Wings wings) {
+        public AirPlaneBuilder wings(Wings wings) {
             _wings = wings;
             return this;
         }
 
-        public Builder cabin(Cabin cabin) {
+        public AirPlaneBuilder cabin(Cabin cabin) {
             _cabin = cabin;
             return this;
         }
 
-        public Builder flyingMachineType(FlyingMachineType flyingMachineType) {
+        public AirPlaneBuilder flyingMachineType(FlyingMachineType flyingMachineType) {
             _flyingMachineType = flyingMachineType;
             return this;
         }
 
-        public Builder fuelCuantity(int fuelCuantity) {
-            _fuelCuantity = fuelCuantity;
+        public AirPlaneBuilder fuelQuantity(int fuelQuantity) {
+            _fuelQuantity = fuelQuantity;
             return this;
         }
 
-        public Builder purpose(Purpose purpose) {
+        public AirPlaneBuilder purpose(Purpose purpose) {
             _purpose = purpose;
             return this;
         }
 
-        public Builder fuelType(Fuel fuelType) {
+        public AirPlaneBuilder fuelType(Fuel fuelType) {
             _fuelType = fuelType;
             return this;
         }
     }
 
-    public Propeller get_propeller() {
+    public Propeller getPropeller() {
         return _propeller;
     }
 
-    public Wings get_wings() {
+    public Wings getWings() {
         return _wings;
     }
 }

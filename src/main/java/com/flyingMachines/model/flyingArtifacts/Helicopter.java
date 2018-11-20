@@ -9,13 +9,13 @@ import com.flyingMachines.type.Purpose;
 public class Helicopter extends FlyingMachine {
 
     private Propeller _propeller;
-    private int _propellerCuantity;
+    private int _propellerQuantity;
 
     public Helicopter(Builder builder) {
         _propeller = builder._propeller;
-        _propellerCuantity = builder._propellerCuantity;
+        _propellerQuantity = builder._propellerQuantity;
         _flyingMachineType = builder._flyingMachineType;
-        _fuelCuantity = builder._fuelCuantity;
+        _fuelQuantity = builder._fuelQuantity;
         _fuelType = builder._fuelType;
         _purpose = builder._purpose;
     }
@@ -23,7 +23,7 @@ public class Helicopter extends FlyingMachine {
     private static class Builder extends FlyingMachine {
         private Cabin _cabin;
         private Propeller _propeller;
-        private int _propellerCuantity;
+        private int _propellerQuantity;
 
         public Helicopter build() {
             return new Helicopter(this);
@@ -39,8 +39,8 @@ public class Helicopter extends FlyingMachine {
             return this;
         }
 
-        public Builder propellerCuantity(int propellerCuantity) {
-            _propellerCuantity = propellerCuantity;
+        public Builder propellerQuantity(int propellerQuantity) {
+            _propellerQuantity = propellerQuantity;
             return this;
         }
 
@@ -49,8 +49,8 @@ public class Helicopter extends FlyingMachine {
             return this;
         }
 
-        public Builder fuelCuantity(int fuelCuantity) {
-            _fuelCuantity = fuelCuantity;
+        public Builder fuelQuantity(int fuelQuantity) {
+            _fuelQuantity = fuelQuantity;
             return this;
         }
 
@@ -59,17 +59,17 @@ public class Helicopter extends FlyingMachine {
             return this;
         }
 
-        public Builder _purpose(Purpose purpose) {
+        public Builder purpose(Purpose purpose) {
             _purpose = purpose;
             return this;
         }
     }
 
-    public Propeller get_propeller() {
+    public Propeller getPropeller() {
         return _propeller;
     }
 
-    public int get_propellerCuantity() {
-        return _propellerCuantity;
+    public int getPropellerQuantity() {
+        return _propellerQuantity;
     }
 }

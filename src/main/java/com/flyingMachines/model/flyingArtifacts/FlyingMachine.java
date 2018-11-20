@@ -9,27 +9,27 @@ class FlyingMachine {
 
     Cabin _cabin;
     FlyingMachineType _flyingMachineType;
-    int _fuelCuantity;
+    int _fuelQuantity;
     Fuel _fuelType;
     Purpose _purpose;
 
-    public FlyingMachineType get_flyingMachineType() {
+    public FlyingMachineType getFlyingMachineType() {
         return _flyingMachineType;
     }
 
-    public int get_fuelCuantity() {
-        return _fuelCuantity;
+    public int getFuelCuantity() {
+        return _fuelQuantity;
     }
 
-    public Purpose get_purpose() {
+    public Purpose getPurpose() {
         return _purpose;
     }
 
-    public Fuel get_fuelType() {
+    public Fuel getFuelType() {
         return _fuelType;
     }
 
-    public Cabin get_cabin() {
+    public Cabin getCabin() {
         return _cabin;
     }
 }
