@@ -26,7 +26,7 @@ public class Drone extends FlyingMachine {
         private Propeller _propeller;
         private int _propellerQuantity;
 
-        public Drone build() {
+        public Drone buildDrone() {
             return new Drone(this);
         }
 

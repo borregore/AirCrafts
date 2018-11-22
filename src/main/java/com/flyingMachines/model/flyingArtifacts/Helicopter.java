@@ -25,7 +25,7 @@ public class Helicopter extends FlyingMachine {
         private Propeller _propeller;
         private int _propellerQuantity;
 
-        public Helicopter build() {
+        public Helicopter buildHelicopter() {
             return new Helicopter(this);
         }
 

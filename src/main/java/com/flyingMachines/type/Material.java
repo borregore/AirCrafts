@@ -14,11 +14,11 @@ public enum Material {
         _price = price;
     }
 
-    public int getWeight() {
+    public int getMaterialWeight() {
         return _weight;
     }
 
-    public int getPrice() {
+    public int getMaterialPrice() {
         return _price;
     }
 }

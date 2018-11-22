@@ -13,7 +13,7 @@ public enum Fuel {
         _price = price;
     }
 
-    public int getPrice() {
+    public int getFuelPrice() {
         return _price;
     }
 }

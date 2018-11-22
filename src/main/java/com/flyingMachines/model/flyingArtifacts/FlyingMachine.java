@@ -5,13 +5,14 @@ import com.flyingMachines.type.FlyingMachineType;
 import com.flyingMachines.type.Fuel;
 import com.flyingMachines.type.Purpose;
 
-class FlyingMachine {
+public class FlyingMachine {
 
     Cabin _cabin;
     FlyingMachineType _flyingMachineType;
     int _fuelQuantity;
     Fuel _fuelType;
     Purpose _purpose;
+    int _rank;
 
     public FlyingMachineType getFlyingMachineType() {
         return _flyingMachineType;
@@ -31,5 +32,9 @@ class FlyingMachine {
 
     public Cabin getCabin() {
         return _cabin;
+    }
+
+    public int getRank() {
+        return _rank;
     }
 }

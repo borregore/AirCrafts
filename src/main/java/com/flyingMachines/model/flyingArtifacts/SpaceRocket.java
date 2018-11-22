@@ -30,7 +30,7 @@ public class SpaceRocket extends FlyingMachine {
         private Wings _wings;
         private Cabin _cabin;
 
-        public SpaceRocket build() {
+        public SpaceRocket buildSpaceRocket() {
             return new SpaceRocket(this);
         }
 

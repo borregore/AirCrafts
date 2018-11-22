@@ -30,7 +30,7 @@ public class Jet extends FlyingMachine {
         private Wings _wings;
         private Cabin _cabin;
 
-        public Jet build() {
+        public Jet buildJet() {
             return new Jet(this);
         }
 
