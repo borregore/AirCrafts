@@ -4,7 +4,7 @@ public enum Fuel {
     BATERIES(500),
     DIESEL(50),
     GASOLINE(60),
-    JET_FUEL(300),
+    Air_FUEL(300),
     WATER(25);
 
     int _price;
