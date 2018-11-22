@@ -73,6 +73,11 @@ public class AirPlane extends FlyingMachine {
             _fuelType = fuelType;
             return this;
         }
+
+        public AirPlaneBuilder rank(int rank) {
+            _rank = rank;
+            return this;
+        }
     }
 
     public Propeller getPropeller() {

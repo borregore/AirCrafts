@@ -11,7 +11,7 @@ public class Helicopter extends FlyingMachine {
     private Propeller _propeller;
     private int _propellerQuantity;
 
-    public Helicopter(Builder builder) {
+    public Helicopter(HelicopterBuilder builder) {
         _propeller = builder._propeller;
         _propellerQuantity = builder._propellerQuantity;
         _flyingMachineType = builder._flyingMachineType;
@@ -20,7 +20,7 @@ public class Helicopter extends FlyingMachine {
         _purpose = builder._purpose;
     }
 
-    private static class Builder extends FlyingMachine {
+    private static class HelicopterBuilder extends FlyingMachine {
         private Cabin _cabin;
         private Propeller _propeller;
         private int _propellerQuantity;
@@ -29,38 +29,43 @@ public class Helicopter extends FlyingMachine {
             return new Helicopter(this);
         }
 
-        public Builder cabin(Cabin cabin) {
+        public HelicopterBuilder cabin(Cabin cabin) {
             _cabin = cabin;
             return this;
         }
 
-        public Builder propeller(Propeller propeller) {
+        public HelicopterBuilder propeller(Propeller propeller) {
             _propeller = propeller;
             return this;
         }
 
-        public Builder propellerQuantity(int propellerQuantity) {
+        public HelicopterBuilder propellerQuantity(int propellerQuantity) {
             _propellerQuantity = propellerQuantity;
             return this;
         }
 
-        public Builder flyingMachineTye(FlyingMachineType flyingMachineType) {
+        public HelicopterBuilder flyingMachineTye(FlyingMachineType flyingMachineType) {
             _flyingMachineType = flyingMachineType;
             return this;
         }
 
-        public Builder fuelQuantity(int fuelQuantity) {
+        public HelicopterBuilder fuelQuantity(int fuelQuantity) {
             _fuelQuantity = fuelQuantity;
             return this;
         }
 
-        public Builder fuelType(Fuel fuelType) {
+        public HelicopterBuilder fuelType(Fuel fuelType) {
             _fuelType = fuelType;
             return this;
         }
 
-        public Builder purpose(Purpose purpose) {
+        public HelicopterBuilder purpose(Purpose purpose) {
             _purpose = purpose;
+            return this;
+        }
+
+        public HelicopterBuilder rank(int rank) {
+            _rank = rank;
             return this;
         }
     }

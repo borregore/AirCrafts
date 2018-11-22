@@ -11,7 +11,7 @@ public class Drone extends FlyingMachine {
     private Propeller _propeller;
     private int _propellerQuantity;
 
-    public Drone(Builder builder) {
+    public Drone(DroneBuilder builder) {
         _cabin = builder._cabin;
         _propeller = builder._propeller;
         _propellerQuantity = builder._propellerQuantity;
@@ -21,47 +21,52 @@ public class Drone extends FlyingMachine {
         _purpose = builder._purpose;
     }
 
-    private static class Builder extends FlyingMachine {
+    private static class DroneBuilder extends FlyingMachine {
         private Cabin _cabin;
         private Propeller _propeller;
         private int _propellerQuantity;
 
-        public Drone buildDrone() {
+        public Drone buildDroneFlyingMachineFactory() {
             return new Drone(this);
         }
 
-        public Builder cabin(Cabin cabin) {
+        public DroneBuilder cabin(Cabin cabin) {
             _cabin = cabin;
             return this;
         }
 
-        public Builder propeller(Propeller propeller) {
+        public DroneBuilder propeller(Propeller propeller) {
             _propeller = propeller;
             return this;
         }
 
-        public Builder propellerQuantity(int propellerQuantity) {
+        public DroneBuilder propellerQuantity(int propellerQuantity) {
             _propellerQuantity = propellerQuantity;
             return this;
         }
 
-        public Builder flyingMachineTye(FlyingMachineType flyingMachineType) {
+        public DroneBuilder flyingMachineTye(FlyingMachineType flyingMachineType) {
             _flyingMachineType = flyingMachineType;
             return this;
         }
 
-        public Builder fuelQuantity(int fuelQuantity) {
+        public DroneBuilder fuelQuantity(int fuelQuantity) {
             _fuelQuantity = fuelQuantity;
             return this;
         }
 
-        public Builder fuelType(Fuel fuelType) {
+        public DroneBuilder fuelType(Fuel fuelType) {
             _fuelType = fuelType;
             return this;
         }
 
-        public Builder purpose(Purpose purpose) {
+        public DroneBuilder purpose(Purpose purpose) {
             _purpose = purpose;
+            return this;
+        }
+
+        public DroneBuilder rank(int rank) {
+            _rank = rank;
             return this;
         }
     }

@@ -13,7 +13,7 @@ public class Jet extends FlyingMachine {
     private int _rocketQuantity;
     private Wings _wings;
 
-    public Jet(Builder builder) {
+    public Jet(JetBuilder builder) {
         _rocket = builder._rocket;
         _rocketQuantity = builder._rocketQuantity;
         _wings = builder._wings;
@@ -24,7 +24,7 @@ public class Jet extends FlyingMachine {
         _purpose = builder._purpose;
     }
 
-    private static class Builder extends FlyingMachine {
+    private static class JetBuilder extends FlyingMachine {
         private Rocket _rocket;
         private int _rocketQuantity;
         private Wings _wings;
@@ -34,43 +34,48 @@ public class Jet extends FlyingMachine {
             return new Jet(this);
         }
 
-        public Builder rocket(Rocket rocket) {
+        public JetBuilder rocket(Rocket rocket) {
             _rocket = rocket;
             return this;
         }
 
-        public Builder rocketQuantity(int rocketQuantity) {
+        public JetBuilder rocketQuantity(int rocketQuantity) {
             _rocketQuantity = rocketQuantity;
             return this;
         }
 
-        public Builder wings(Wings wings) {
+        public JetBuilder wings(Wings wings) {
             _wings = wings;
             return this;
         }
 
-        public Builder cabin(Cabin cabin) {
+        public JetBuilder cabin(Cabin cabin) {
             _cabin = cabin;
             return this;
         }
 
-        public Builder flyingMachineType(FlyingMachineType flyingMachineType) {
+        public JetBuilder flyingMachineType(FlyingMachineType flyingMachineType) {
             _flyingMachineType = flyingMachineType;
             return this;
         }
 
-        public Builder fuelQuantity(int fuelQuantity) {
+        public JetBuilder fuelQuantity(int fuelQuantity) {
             _fuelQuantity = fuelQuantity;
             return this;
         }
 
-        public Builder purpose(Purpose purpose) {
+        public JetBuilder purpose(Purpose purpose) {
             _purpose = purpose;
             return this;
         }
 
-        public Builder fuelType(Fuel fuelType) {
+        public JetBuilder fuelType(Fuel fuelType) {
             _fuelType = fuelType;
+            return this;
+        }
+
+        public JetBuilder rank(int rank) {
+            _rank = rank;
             return this;
         }
     }

@@ -13,7 +13,7 @@ public class SpaceRocket extends FlyingMachine {
     private int _rocketQuantity;
     private Wings _wings;
 
-    public SpaceRocket(Builder builder) {
+    public SpaceRocket(SpaceRocketBuilder builder) {
         _rocket = builder._rocket;
         _rocketQuantity = builder._rocketQuantity;
         _wings = builder._wings;
@@ -24,7 +24,7 @@ public class SpaceRocket extends FlyingMachine {
         _purpose = builder._purpose;
     }
 
-    private static class Builder extends FlyingMachine {
+    private static class SpaceRocketBuilder extends FlyingMachine {
         private Rocket _rocket;
         private int _rocketQuantity;
         private Wings _wings;
@@ -34,43 +34,48 @@ public class SpaceRocket extends FlyingMachine {
             return new SpaceRocket(this);
         }
 
-        public Builder rocket(Rocket rocket) {
+        public SpaceRocketBuilder rocket(Rocket rocket) {
             _rocket = rocket;
             return this;
         }
 
-        public Builder rocketQuantity(int rocketCuantity) {
+        public SpaceRocketBuilder rocketQuantity(int rocketCuantity) {
             _rocketQuantity = rocketCuantity;
             return this;
         }
 
-        public Builder wings(Wings wings) {
+        public SpaceRocketBuilder wings(Wings wings) {
             _wings = wings;
             return this;
         }
 
-        public Builder cabin(Cabin cabin) {
+        public SpaceRocketBuilder cabin(Cabin cabin) {
             _cabin = cabin;
             return this;
         }
 
-        public Builder flyingMachineType(FlyingMachineType flyingMachineType) {
+        public SpaceRocketBuilder flyingMachineType(FlyingMachineType flyingMachineType) {
             _flyingMachineType = flyingMachineType;
             return this;
         }
 
-        public Builder fuelQuantity(int fuelCuantity) {
+        public SpaceRocketBuilder fuelQuantity(int fuelCuantity) {
             _fuelQuantity = fuelCuantity;
             return this;
         }
 
-        public Builder purpose(Purpose purpose) {
+        public SpaceRocketBuilder purpose(Purpose purpose) {
             _purpose = purpose;
             return this;
         }
 
-        public Builder fuelType(Fuel fuelType) {
+        public SpaceRocketBuilder fuelType(Fuel fuelType) {
             _fuelType = fuelType;
+            return this;
+        }
+
+        public SpaceRocketBuilder rank(int rank) {
+            _rank = rank;
             return this;
         }
     }

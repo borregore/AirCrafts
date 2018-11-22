@@ -13,7 +13,7 @@ public class Plane extends FlyingMachine {
     private int _propellerQuantity;
     private Wings _wings;
 
-    public Plane(Builder builder) {
+    public Plane(PlaneBuilder builder) {
         _propeller = builder._propeller;
         _propellerQuantity = builder._propellerQuantity;
         _wings = builder._wings;
@@ -24,7 +24,7 @@ public class Plane extends FlyingMachine {
         _purpose = builder._purpose;
     }
 
-    private static class Builder extends FlyingMachine {
+    private static class PlaneBuilder extends FlyingMachine {
         private Propeller _propeller;
         private int _propellerQuantity;
         private Wings _wings;
@@ -34,43 +34,48 @@ public class Plane extends FlyingMachine {
             return new Plane(this);
         }
 
-        public Builder propeller(Propeller propeller) {
+        public PlaneBuilder propeller(Propeller propeller) {
             _propeller = propeller;
             return this;
         }
 
-        public Builder propellerQuantity(int propellerQuantity) {
+        public PlaneBuilder propellerQuantity(int propellerQuantity) {
             _propellerQuantity = propellerQuantity;
             return this;
         }
 
-        public Builder wings(Wings wings) {
+        public PlaneBuilder wings(Wings wings) {
             _wings = wings;
             return this;
         }
 
-        public Builder cabin(Cabin cabin) {
+        public PlaneBuilder cabin(Cabin cabin) {
             _cabin = cabin;
             return this;
         }
 
-        public Builder flyingMachineType(FlyingMachineType flyingMachineType) {
+        public PlaneBuilder flyingMachineType(FlyingMachineType flyingMachineType) {
             _flyingMachineType = flyingMachineType;
             return this;
         }
 
-        public Builder fuelQuantity(int fuelQuantity) {
+        public PlaneBuilder fuelQuantity(int fuelQuantity) {
             _fuelQuantity = fuelQuantity;
             return this;
         }
 
-        public Builder purpose(Purpose purpose) {
+        public PlaneBuilder purpose(Purpose purpose) {
             _purpose = purpose;
             return this;
         }
 
-        public Builder fuelType(Fuel fuelType) {
+        public PlaneBuilder fuelType(Fuel fuelType) {
             _fuelType = fuelType;
+            return this;
+        }
+
+        public PlaneBuilder rank(int rank) {
+            _rank = rank;
             return this;
         }
     }
