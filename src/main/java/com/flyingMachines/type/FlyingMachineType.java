@@ -2,7 +2,7 @@ package com.flyingMachines.type;
 
 public enum FlyingMachineType {
     JET,
-    SPACEROCKET,
+    SPACE_ROCKET,
     PLANE,
     DRONE,
     HELICOPTER,

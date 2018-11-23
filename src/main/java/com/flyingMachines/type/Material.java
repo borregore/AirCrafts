@@ -6,8 +6,8 @@ public enum Material {
     TITANIUM(250, 200),
     WOOD(50, 15);
 
-    int _weight;
-    int _price;
+    private final int _weight;
+    private final int _price;
 
     Material(int weight, int price){
         _weight = weight;

@@ -1,6 +1,5 @@
 package com.flyingMachines.service;
 
-import com.flyingMachines.model.flyingArtifacts.AirPlane;
 import com.flyingMachines.model.flyingArtifacts.FlyingMachine;
 import com.flyingMachines.type.FlyingMachineType;
 
@@ -18,7 +17,7 @@ public class FlyinMachineFactory {
                 return createJet();
             case PLANE:
                 return createPlane();
-            case SPACEROCKET:
+            case SPACE_ROCKET:
                 return createSpaceRocket();
             default:
                 return null;
