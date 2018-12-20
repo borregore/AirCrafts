@@ -21,13 +21,17 @@ public class Drone extends FlyingMachine {
         _purpose = builder._purpose;
     }
 
-    private static class DroneBuilder extends FlyingMachine {
+    public static class DroneBuilder extends FlyingMachine {
         private Cabin _cabin;
         private Propeller _propeller;
         private int _propellerQuantity;
 
-        public Drone buildDroneFlyingMachineFactory() {
+        public Drone buildDrone() {
             return new Drone(this);
+        }
+
+        public static DroneBuilder createInstance(){
+            return new DroneBuilder();
         }
 
         public DroneBuilder cabin(Cabin cabin) {

@@ -20,13 +20,17 @@ public class Helicopter extends FlyingMachine {
         _purpose = builder._purpose;
     }
 
-    private static class HelicopterBuilder extends FlyingMachine {
+    public static class HelicopterBuilder extends FlyingMachine {
         private Cabin _cabin;
         private Propeller _propeller;
         private int _propellerQuantity;
 
         public Helicopter buildHelicopter() {
             return new Helicopter(this);
+        }
+
+        public static HelicopterBuilder createInstance(){
+            return new HelicopterBuilder();
         }
 
         public HelicopterBuilder cabin(Cabin cabin) {

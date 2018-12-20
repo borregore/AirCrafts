@@ -24,7 +24,7 @@ public class SpaceRocket extends FlyingMachine {
         _purpose = builder._purpose;
     }
 
-    private static class SpaceRocketBuilder extends FlyingMachine {
+    public static class SpaceRocketBuilder extends FlyingMachine {
         private Rocket _rocket;
         private int _rocketQuantity;
         private Wings _wings;
@@ -32,6 +32,10 @@ public class SpaceRocket extends FlyingMachine {
 
         public SpaceRocket buildSpaceRocket() {
             return new SpaceRocket(this);
+        }
+
+        public static SpaceRocketBuilder createInstance(){
+            return new SpaceRocketBuilder();
         }
 
         public SpaceRocketBuilder rocket(Rocket rocket) {

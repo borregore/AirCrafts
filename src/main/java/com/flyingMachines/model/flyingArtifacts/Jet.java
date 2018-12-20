@@ -24,7 +24,7 @@ public class Jet extends FlyingMachine {
         _purpose = builder._purpose;
     }
 
-    private static class JetBuilder extends FlyingMachine {
+    public static class JetBuilder extends FlyingMachine {
         private Rocket _rocket;
         private int _rocketQuantity;
         private Wings _wings;
@@ -32,6 +32,10 @@ public class Jet extends FlyingMachine {
 
         public Jet buildJet() {
             return new Jet(this);
+        }
+
+        public static JetBuilder createInstance(){
+            return new JetBuilder();
         }
 
         public JetBuilder rocket(Rocket rocket) {

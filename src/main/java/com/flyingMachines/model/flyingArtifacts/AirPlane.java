@@ -24,7 +24,9 @@ public class AirPlane extends FlyingMachine {
         _purpose = builder._purpose;
     }
 
-    private static class AirPlaneBuilder extends FlyingMachine {
+    //AirPlane.AirPlaneBuilder  airplaneBuilder = AirPlane.AirPlaneBuilder.createInstance();
+
+    public static class AirPlaneBuilder extends FlyingMachine {
         private Propeller _propeller;
         private int _propellerQuantity;
         private Wings _wings;
@@ -32,6 +34,10 @@ public class AirPlane extends FlyingMachine {
 
         public AirPlane buildAirplane() {
             return new AirPlane(this);
+        }
+
+        public static AirPlaneBuilder createInstance(){
+            return new AirPlaneBuilder();
         }
 
         public AirPlaneBuilder propeller(Propeller propeller) {

@@ -1,9 +1,13 @@
 package com.flyingMachines.service;
 
+import com.flyingMachines.model.parts.Propeller;
+import com.flyingMachines.model.parts.Rocket;
+import com.flyingMachines.model.parts.Wings;
 import com.flyingMachines.type.FlyingMachineType;
 import com.flyingMachines.type.Fuel;
 import com.flyingMachines.type.Material;
 import com.flyingMachines.type.Purpose;
+import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
@@ -11,7 +15,6 @@ public class FlyingMachineEngine {
 
     private static final String JET = "JET";
     private static final String SPACE_ROCKET = "SPACE_ROCKET";
-    private static final String PLANE = "PLANE";
     private static final String DRONE = "DRONE";
     private static final String HELICOPTER = "HELICOPTER";
     private static final String AIRPLANE = "AIRPLANE";
@@ -34,8 +37,6 @@ public class FlyingMachineEngine {
                 return FlyingMachineType.JET;
             case SPACE_ROCKET:
                 return FlyingMachineType.SPACE_ROCKET;
-            case PLANE:
-                return FlyingMachineType.PLANE;
             case DRONE:
                 return FlyingMachineType.DRONE;
             case HELICOPTER:
@@ -75,8 +76,8 @@ public class FlyingMachineEngine {
         }
     }
 
-    public Fuel chooseFuelType(String fuelType) {
-        switch (fuelType) {
+    public Fuel getFuelTypeFromJSON(JSONObject json) throws JSONException{
+        switch (json.getString("fuelType")) {
             case BATTERY:
                 return Fuel.BATTERY;
             case DIESEL:
@@ -91,4 +92,38 @@ public class FlyingMachineEngine {
                 return null;
         }
     }
+
+    public Propeller[] getPropellersFromJSON(JSONObject json) throws JSONException{
+        JSONArray propellers = json.getJSONArray("propellers");
+        Propeller[] array = new Propeller[propellers.length()];
+        for(int i = 0; i < propellers.length(); i++){
+            JSONObject object = (JSONObject)propellers.get(i);
+            String material = (String) object.get("material");
+            array[i] = new Propeller(chooseMaterial(material));
+        }
+        return array;
+    }
+
+    public Wings[] getWingsFromJSON(JSONObject json) throws JSONException{
+        JSONArray wings = json.getJSONArray("wings");
+        Wings[] array = new Wings[wings.length()];
+        for(int i = 0; i < wings.length(); i++){
+            JSONObject object = (JSONObject)wings.get(i);
+            String material = object.getString("material");
+            array[i] = new Wings(chooseMaterial(material));
+        }
+        return array;
+    }
+
+    public Rocket[] getRocketsFromJSON(JSONObject json) throws JSONException{
+        JSONArray rockets = json.getJSONArray("rockets");
+        Rocket[] array = new Rocket[rockets.length()];
+        for(int i = 0; i < rockets.length(); i++){
+            JSONObject object = (JSONObject)rockets.get(i);
+            String material = object.getString("material");
+            array[i] = new Rocket(chooseMaterial(material));
+        }
+        return array;
+    }
+
 }
