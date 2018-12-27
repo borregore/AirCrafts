@@ -2,19 +2,22 @@ package com.flyingMachines.model.flyingArtifacts;
 
 import com.flyingMachines.model.parts.Cabin;
 import com.flyingMachines.model.parts.Rocket;
-import com.flyingMachines.model.parts.Wings;
+import com.flyingMachines.model.parts.Wing;
 import com.flyingMachines.type.FlyingMachineType;
 import com.flyingMachines.type.Fuel;
 import com.flyingMachines.type.Purpose;
 
-public class Jet extends FlyingMachine {
+import java.util.ArrayList;
+import java.util.List;
 
-    private Rocket _rocket;
+public class Jet extends FlyingMachine implements Machine {
+
+    private List<Rocket> _rockets = new ArrayList<>();
     private int _rocketQuantity;
-    private Wings _wings;
+    private List<Wing> _wings = new ArrayList<>();
 
     public Jet(JetBuilder builder) {
-        _rocket = builder._rocket;
+        _rockets = builder._rockets;
         _rocketQuantity = builder._rocketQuantity;
         _wings = builder._wings;
         _cabin = builder._cabin;
@@ -22,24 +25,25 @@ public class Jet extends FlyingMachine {
         _fuelType = builder._fuelType;
         _fuelQuantity = builder._fuelQuantity;
         _purpose = builder._purpose;
+        _rank = builder._rank;
     }
 
     public static class JetBuilder extends FlyingMachine {
-        private Rocket _rocket;
+        private List<Rocket> _rockets;
         private int _rocketQuantity;
-        private Wings _wings;
+        private List<Wing> _wings;
         private Cabin _cabin;
 
         public Jet buildJet() {
             return new Jet(this);
         }
 
-        public static JetBuilder createInstance(){
+        public static JetBuilder createInstance() {
             return new JetBuilder();
         }
 
-        public JetBuilder rocket(Rocket rocket) {
-            _rocket = rocket;
+        public JetBuilder rocket(List<Rocket> rockets) {
+            _rockets = rockets;
             return this;
         }
 
@@ -48,7 +52,7 @@ public class Jet extends FlyingMachine {
             return this;
         }
 
-        public JetBuilder wings(Wings wings) {
+        public JetBuilder wings(List<Wing> wings) {
             _wings = wings;
             return this;
         }
@@ -88,12 +92,39 @@ public class Jet extends FlyingMachine {
         return _rocketQuantity;
     }
 
-    public Rocket getRocket() {
-        return _rocket;
+    public List<Rocket> getRocket() {
+        return _rockets;
     }
 
-    public Wings getWings() {
+    public List<Wing> getWings() {
         return _wings;
+    }
+
+    @Override
+    public void calculateTotalPrice() {
+        int price = 0;
+        for (Rocket rocket : _rockets) {
+            price += rocket.getMaterial().getMaterialPrice();
+        }
+        for (Wing wing : _wings) {
+            price += wing.getMaterial().getMaterialPrice();
+        }
+        price += _cabin.getMaterial().getMaterialPrice();
+        price += _fuelQuantity * _fuelType.getFuelPrice();
+        _totalPrice = price;
+    }
+
+    @Override
+    public void calculateTotalWeight() {
+        int weight = 0;
+        for (Rocket rocket : _rockets) {
+            weight += rocket.getMaterial().getMaterialWeight();
+        }
+        for (Wing wing : _wings) {
+            weight += wing.getMaterial().getMaterialWeight();
+        }
+        weight += _cabin.getMaterial().getMaterialWeight();
+        _totalWeight = weight;
     }
 }
 

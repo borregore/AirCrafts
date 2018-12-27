@@ -6,31 +6,35 @@ import com.flyingMachines.type.FlyingMachineType;
 import com.flyingMachines.type.Fuel;
 import com.flyingMachines.type.Purpose;
 
-public class Drone extends FlyingMachine {
+import java.util.ArrayList;
+import java.util.List;
 
-    private Propeller _propeller;
+public class Drone extends FlyingMachine implements Machine {
+
+    private List<Propeller> _propellers = new ArrayList<>();
     private int _propellerQuantity;
 
     public Drone(DroneBuilder builder) {
         _cabin = builder._cabin;
-        _propeller = builder._propeller;
+        _propellers = builder._propellers;
         _propellerQuantity = builder._propellerQuantity;
         _flyingMachineType = builder._flyingMachineType;
         _fuelQuantity = builder._fuelQuantity;
         _fuelType = builder._fuelType;
         _purpose = builder._purpose;
+        _rank = builder._rank;
     }
 
     public static class DroneBuilder extends FlyingMachine {
         private Cabin _cabin;
-        private Propeller _propeller;
+        private List<Propeller> _propellers;
         private int _propellerQuantity;
 
         public Drone buildDrone() {
             return new Drone(this);
         }
 
-        public static DroneBuilder createInstance(){
+        public static DroneBuilder createInstance() {
             return new DroneBuilder();
         }
 
@@ -39,8 +43,8 @@ public class Drone extends FlyingMachine {
             return this;
         }
 
-        public DroneBuilder propeller(Propeller propeller) {
-            _propeller = propeller;
+        public DroneBuilder propeller(List<Propeller> propellers) {
+            _propellers = propellers;
             return this;
         }
 
@@ -75,11 +79,32 @@ public class Drone extends FlyingMachine {
         }
     }
 
-    public Propeller getPropeller() {
-        return _propeller;
+    public List<Propeller> getPropeller() {
+        return _propellers;
     }
 
     public int getPropellerQuantity() {
         return _propellerQuantity;
+    }
+
+    @Override
+    public void calculateTotalPrice() {
+        int price = 0;
+        for (Propeller propeller : _propellers) {
+            price += propeller.getMaterial().getMaterialPrice();
+        }
+        price += _cabin.getMaterial().getMaterialPrice();
+        price += _fuelQuantity * _fuelType.getFuelPrice();
+        _totalPrice = price;
+    }
+
+    @Override
+    public void calculateTotalWeight() {
+        int weight = 0;
+        for (Propeller propeller : _propellers) {
+            weight += propeller.getMaterial().getMaterialWeight();
+        }
+        weight += _cabin.getMaterial().getMaterialWeight();
+        _totalWeight = weight;
     }
 }

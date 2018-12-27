@@ -13,6 +13,8 @@ public class FlyingMachine {
     Fuel _fuelType;
     Purpose _purpose;
     int _rank;
+    int _totalPrice;
+    int _totalWeight;
 
     public FlyingMachineType getFlyingMachineType() {
         return _flyingMachineType;
@@ -38,5 +40,12 @@ public class FlyingMachine {
         return _rank;
     }
 
+    public int getTotalPrice(){
+        return _totalPrice;
+    }
+
+    public int getTotalWeight(){
+        return _totalWeight;
+    }
 
 }

@@ -2,9 +2,9 @@ package com.flyingMachines.model.parts;
 
 import com.flyingMachines.type.Material;
 
-public class Wings extends Parts {
+public class Wing extends Parts {
 
-    public Wings(Material material) {
+    public Wing(Material material) {
         _material = material;
     }
 }

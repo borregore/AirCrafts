@@ -2,19 +2,22 @@ package com.flyingMachines.model.flyingArtifacts;
 
 import com.flyingMachines.model.parts.Cabin;
 import com.flyingMachines.model.parts.Rocket;
-import com.flyingMachines.model.parts.Wings;
+import com.flyingMachines.model.parts.Wing;
 import com.flyingMachines.type.FlyingMachineType;
 import com.flyingMachines.type.Fuel;
 import com.flyingMachines.type.Purpose;
 
-public class SpaceRocket extends FlyingMachine {
+import java.util.ArrayList;
+import java.util.List;
 
-    private Rocket _rocket;
+public class SpaceRocket extends FlyingMachine implements Machine {
+
+    private List<Rocket> _rockets = new ArrayList<>();
     private int _rocketQuantity;
-    private Wings _wings;
+    private List<Wing> _wings = new ArrayList<>();
 
     public SpaceRocket(SpaceRocketBuilder builder) {
-        _rocket = builder._rocket;
+        _rockets = builder.rockets;
         _rocketQuantity = builder._rocketQuantity;
         _wings = builder._wings;
         _cabin = builder._cabin;
@@ -22,24 +25,25 @@ public class SpaceRocket extends FlyingMachine {
         _fuelType = builder._fuelType;
         _fuelQuantity = builder._fuelQuantity;
         _purpose = builder._purpose;
+        _rank = builder._rank;
     }
 
     public static class SpaceRocketBuilder extends FlyingMachine {
-        private Rocket _rocket;
+        private List<Rocket> rockets;
         private int _rocketQuantity;
-        private Wings _wings;
+        private List<Wing> _wings;
         private Cabin _cabin;
 
         public SpaceRocket buildSpaceRocket() {
             return new SpaceRocket(this);
         }
 
-        public static SpaceRocketBuilder createInstance(){
+        public static SpaceRocketBuilder createInstance() {
             return new SpaceRocketBuilder();
         }
 
-        public SpaceRocketBuilder rocket(Rocket rocket) {
-            _rocket = rocket;
+        public SpaceRocketBuilder rockets(List<Rocket> rockets) {
+            rockets = rockets;
             return this;
         }
 
@@ -48,10 +52,11 @@ public class SpaceRocket extends FlyingMachine {
             return this;
         }
 
-        public SpaceRocketBuilder wings(Wings wings) {
+        public SpaceRocketBuilder wings(List<Wing> wings) {
             _wings = wings;
             return this;
         }
+
 
         public SpaceRocketBuilder cabin(Cabin cabin) {
             _cabin = cabin;
@@ -88,11 +93,38 @@ public class SpaceRocket extends FlyingMachine {
         return _rocketQuantity;
     }
 
-    public Rocket getRocket() {
-        return _rocket;
+    public List<Rocket> getRockets() {
+        return _rockets;
     }
 
-    public Wings getWings() {
+    public List<Wing> getWings() {
         return _wings;
+    }
+
+    @Override
+    public void calculateTotalPrice() {
+        int price = 0;
+        /*for(Rocket rocket : _rockets){
+            price += rocket.getMaterial().getMaterialPrice();
+        }
+        for(Wing wing : _wings){
+            price += wing.getMaterial().getMaterialPrice();
+        }*/
+        price += _cabin.getMaterial().getMaterialPrice();
+        price += _fuelQuantity * _fuelType.getFuelPrice();
+        _totalPrice = price;
+    }
+
+    @Override
+    public void calculateTotalWeight() {
+        int weight = 0;
+        /*for(Rocket rocket : _rockets){
+            weight += rocket.getMaterial().getMaterialWeight();
+        }*/
+        for(Wing wing : _wings){
+            weight += wing.getMaterial().getMaterialWeight();
+        }
+        weight += _cabin.getMaterial().getMaterialWeight();
+        _totalWeight = weight;
     }
 }
